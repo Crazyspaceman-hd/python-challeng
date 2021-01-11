@@ -21,9 +21,8 @@ with open(csvpath, newline='') as csvfile:
         # net total profit/loss
         net= net + int(row[1])
         # average of changes in profit/loss
-        change= int(row[1])- int(row.previous[1])
-        #change= int(row[1])-before        
-        #before=int(row[1])
+        change= int(row[1])-before        
+        before=int(row[1])
         change_tote=change_tote+change
         # greatest profits date and amount
         if change > prof_max:
