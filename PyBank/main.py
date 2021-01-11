@@ -21,13 +21,15 @@ with open(csvpath, newline='') as csvfile:
         # net total profit/loss
         net= net + int(row[1])
         # average of changes in profit/loss
-        change= int(row[1])-before
-        before=int(row[1])
+        change= int(row[1])- int(row.previous[1])
+        #change= int(row[1])-before        
+        #before=int(row[1])
         change_tote=change_tote+change
         # greatest profits date and amount
         if change > prof_max:
             prof_max= change
             date_prof_max= row[0]
+        # greatest loss date and amount
         if change < prof_min:
             prof_min= change
             date_prof_min= row[0]
@@ -43,15 +45,3 @@ print("Total: $"+ str(net))
 print("Average Change: $"+ str(change_avg))
 print("Greatest Increase in Profits: "+ date_prof_max +" $"+str(prof_max))
 print("Greatest Decrease in Profits: "+ date_prof_min +" $"+str(prof_min))
-    
-
-        
-
-
-
-        
-
-
-
-# greatest profits date and amount
-# greatest loss date and amount
