@@ -23,20 +23,18 @@ votes_total= len(votes)
 
 #create list of candidate names        
 candidates=set(votes)
+#create dictionary of candidates names and vote counts
 for name in candidates:
     final_votes.append (votes.count(name))
-    # percentage.append(round(votes.count(name)/votes_total, 3))
-   #number of votes for each candidate
-#total number of votes cast
     results[name] = votes.count(name)
 
 print(votes_total)
 
 for p, v in results.items():
-    print(f'{p}: {round((v/votes_total)*100, 5)}% ({v}) ')
+    print(f'{p}:  {round((v/votes_total)*100, 3)}% ({v}) ')
 # print(results)
 #print(candidates)
 #print(percentage)
-
+print (max(results, key=results.get))
         
 #print (candidates)
