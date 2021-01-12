@@ -4,7 +4,7 @@ import csv
 votes = []
 final_votes = []
 percentage = []
-
+results ={}
 
 csvpath = os.path.join("Resources", "election_data.csv")
 
@@ -25,17 +25,16 @@ votes_total= len(votes)
 candidates=set(votes)
 for name in candidates:
     final_votes.append (votes.count(name))
-    percentage.append(round(votes.count(name)/votes_total, 3))
+    # percentage.append(round(votes.count(name)/votes_total, 3))
    #number of votes for each candidate
 #total number of votes cast
-results = {"Candidate": candidates,
-           "Vote_count": final_votes,
-           "Percent": percentage}
-
-
+    results[name] = votes.count(name)
 
 print(votes_total)
-print(results)
+
+for p, v in results.items():
+    print(f'{p}: {round((v/votes_total)*100, 5)}% ({v}) ')
+# print(results)
 #print(candidates)
 #print(percentage)
 
