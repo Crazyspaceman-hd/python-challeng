@@ -28,13 +28,24 @@ for name in candidates:
     final_votes.append (votes.count(name))
     results[name] = votes.count(name)
 
-print(votes_total)
 
+print("Election Results")
+print("---------------------------")
+print("Total Votes: ", votes_total)
+print("---------------------------")
 for p, v in results.items():
-    print(f'{p}:  {round((v/votes_total)*100, 3)}% ({v}) ')
-# print(results)
-#print(candidates)
-#print(percentage)
-print (max(results, key=results.get))
-        
-#print (candidates)
+    print(f'{p}:  {"{:.3f}".format((v/votes_total)*100)}% ({v}) ')
+print("---------------------------")
+print (f'Winner:  {max(results, key=results.get)}')
+print("---------------------------")
+
+with open('./Analysis/Election_results.txt', 'w') as f:
+    print("Election Results", file=f)
+    print("---------------------------", file=f)
+    print("Total Votes: ", votes_total, file=f)
+    print("---------------------------", file=f)
+    for p, v in results.items():
+       print(f'{p}:  {"{:.3f}".format((v/votes_total)*100)}% ({v}) ', file=f)
+    print("---------------------------", file=f)
+    print (f'Winner:  {max(results, key=results.get)}', file=f)
+    print("---------------------------", file=f)
