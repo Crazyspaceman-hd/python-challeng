@@ -3,7 +3,6 @@ import os
 import csv
 #declare lists and dictionaries
 votes = []
-final_votes = []
 percentage = []
 results ={}
 
@@ -23,7 +22,6 @@ votes_total= len(votes)
 candidates=set(votes)
 #create dictionary of candidates names and vote counts
 for name in candidates:
-    final_votes.append (votes.count(name))
     results[name] = votes.count(name)
 
 #print summary
